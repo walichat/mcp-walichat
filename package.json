@@ -1,0 +1,71 @@
+{
+  "name": "mcp-walichat",
+  "version": "0.1.0",
+  "description": "WaliChat WhatsApp MCP connector",
+  "keywords": [
+    "mcp",
+    "stdio",
+    "sse",
+    "http-streaming",
+    "modelcontextprotocol",
+    "walichat",
+    "claude",
+    "chatgpt",
+    "whatsapp",
+    "whatsapp business",
+    "whatsapp-api",
+    "whatsapp-bot",
+    "whatsapp-mcp",
+    "whatsapp-chatgpt",
+    "whatsapp-automation",
+    "whatsapp-llm",
+    "whatsapp-ai"
+  ],
+  "author": "WaliChat <code@wali.chat>",
+  "repository": "https://github.com/walichat/mcp-walichat",
+  "type": "module",
+  "files": [
+    "dist",
+    "README.md",
+    "LICENSE"
+  ],
+  "main": "dist/index.js",
+  "bin": {
+    "mcp-walichat": "dist/proxy.js",
+    "mcp-walichat-client": "dist/client.js"
+  },
+  "scripts": {
+    "build": "tsup",
+    "build:watch": "tsup --watch",
+    "check": "prettier --check . && tsc",
+    "lint-fix": "prettier --check . --write",
+    "build:all": "node .builder/build.js"
+  },
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "https://pkg.pr.new/geelen/typescript-sdk/@modelcontextprotocol/sdk@cdf3508",
+    "express": "^4.21.2",
+    "open": "^10.1.0"
+  },
+  "devDependencies": {
+    "@types/express": "^5.0.0",
+    "@types/node": "^22.13.10",
+    "prettier": "^3.5.3",
+    "tsup": "^8.4.0",
+    "tsx": "^4.19.3",
+    "typescript": "^5.8.2"
+  },
+  "tsup": {
+    "entry": [
+      "src/client.ts",
+      "src/proxy.ts"
+    ],
+    "format": [
+      "esm"
+    ],
+    "dts": true,
+    "clean": true,
+    "outDir": "dist",
+    "external": []
+  },
+  "packageManager": "pnpm@10.11.0+sha512.6540583f41cc5f628eb3d9773ecee802f4f9ef9923cc45b69890fb47991d4b092964694ec3a4f738a420c918a333062c8b925d312f42e4f0c263eb603551f977"
+}
