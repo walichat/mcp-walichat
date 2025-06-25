@@ -614,7 +614,7 @@ export async function parseCommandLineArgs(args: string[], usage: string) {
     process.exit(1)
   }
 
-  const serverBaseUrl = process.env.WASSENGER_SERVER_URL || 'https://api.wali.chat'
+  const serverBaseUrl = process.env.WALICHAT_SERVER_URL || 'https://api.wali.chat'
   const serverUrl = `${serverBaseUrl}/mcp?key=${apiKey}`
   const serverUrlHash = getServerUrlHash(serverUrl)
 

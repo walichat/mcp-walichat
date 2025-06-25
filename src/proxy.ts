@@ -40,7 +40,7 @@ async function runProxy(
   const events = new EventEmitter()
 
   // Get the server URL hash for lockfile operations
-  const serverBaseUrl = process.env.WASSENGER_SERVER_URL || 'https://api.wali.chat'
+  const serverBaseUrl = process.env.WALICHAT_SERVER_URL || 'https://api.wali.chat'
   const serverUrl = `${serverBaseUrl}/mcp?key=${apiKey}`
   const serverUrlHash = getServerUrlHash(serverUrl)
 
@@ -124,10 +124,10 @@ to the CA certificate file. If using claude_desktop_config.json, this might look
       "command": "npx",
       "args": [
         "mcp-walichat",
-        "\${WASSENGER_KEY}"
+        "\${WALICHAT_KEY}"
       ],
       "env": {
-        "WASSENGER_KEY": "paste-your-key-here",
+        "WALICHAT_KEY": "paste-your-key-here",
         "NODE_EXTRA_CA_CERTS": "/path/to/your/ca-certificate.crt"
       }
     }

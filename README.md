@@ -176,7 +176,7 @@ Add this to your `claude_desktop_config.json`:
   "mcpServers": {
     "walichat": {
       "type": "http",
-      "url": "https://api.wali.chat/mcp?key=YOUR_WASSENGER_API_KEY"
+      "url": "https://api.wali.chat/mcp?key=YOUR_WALICHAT_API_KEY"
     }
   }
 }
@@ -189,9 +189,9 @@ Or using environment variables:
   "mcpServers": {
     "walichat": {
       "type": "http",
-      "url": "https://api.wali.chat/mcp?key=${WASSENGER_API_KEY}",
+      "url": "https://api.wali.chat/mcp?key=${WALICHAT_API_KEY}",
       "env": {
-        "WASSENGER_API_KEY": "your-api-key-here"
+        "WALICHAT_API_KEY": "your-api-key-here"
       }
     }
   }
@@ -206,7 +206,7 @@ In VS Code settings (JSON format):
 {
   "mcp.servers": {
     "walichat": {
-      "url": "https://api.wali.chat/mcp?key=YOUR_WASSENGER_API_KEY",
+      "url": "https://api.wali.chat/mcp?key=YOUR_WALICHAT_API_KEY",
       "transport": "http-streaming"
     }
   }
@@ -226,7 +226,7 @@ In VS Code settings (JSON format):
 1. Sign up at [WaliChat.com](https://wali.chat)
 2. Go to your [API settings](https://app.wali.chat/api)
 3. Copy your API key
-4. Replace `YOUR_WASSENGER_API_KEY` in the configuration above
+4. Replace `YOUR_WALICHAT_API_KEY` in the configuration above
 
 ## MCP Tools Supported
 
@@ -315,10 +315,10 @@ To bypass authentication, or to emit custom headers on all requests to your remo
       "command": "npx",
       "args": [
         "mcp-walichat",
-        "${WASSENGER_API}"
+        "${WALICHAT_API}"
       ],
       "env": {
-        "WASSENGER_API": "..."
+        "WALICHAT_API": "..."
       }
     },
   }
@@ -332,10 +332,10 @@ To bypass authentication, or to emit custom headers on all requests to your remo
   // rest of config...
   "args": [
     "mcp-walichat",
-    "${WASSENGER_API}"
+    "${WALICHAT_API}"
   ],
   "env": {
-    "WASSENGER_API": "<walichat-api-get-here>"
+    "WALICHAT_API": "<walichat-api-get-here>"
   }
 },
 ```
@@ -347,7 +347,7 @@ Here's how you can use the WaliChat MCP server as a tool with the OpenAI JavaScr
 ```javascript
 import OpenAI from 'openai';
 
-const walichatKey = process.env.WASSENGER_API_KEY || 'walichat-api-key-here'
+const walichatKey = process.env.WALICHAT_API_KEY || 'walichat-api-key-here'
 
 const openai = new OpenAI({
   apiKey: process.env.OPENAI_API_KEY,
@@ -380,7 +380,7 @@ And set your environment variables:
 
 ```bash
 export OPENAI_API_KEY="your-openai-api-key"
-export WASSENGER_API_KEY="your-walichat-api-key"
+export WALICHAT_API_KEY="your-walichat-api-key"
 ```
 
 This approach uses OpenAI's new Responses API with MCP integration, which automatically handles tool discovery, execution, and communication with the WaliChat MCP server without requiring manual MCP client setup.
@@ -535,7 +535,7 @@ You can use the WaliChat MCP server as a tool with OpenAI's new Responses API, w
 ```javascript
 import OpenAI from 'openai';
 
-const walichatKey = process.env.WASSENGER_API_KEY || 'your-walichat-api-key';
+const walichatKey = process.env.WALICHAT_API_KEY || 'your-walichat-api-key';
 
 const openai = new OpenAI({
   apiKey: process.env.OPENAI_API_KEY,
@@ -564,7 +564,7 @@ console.log('Response:', response);
 import os
 from openai import OpenAI
 
-walichat_key = os.getenv('WASSENGER_API_KEY', 'your-walichat-api-key')
+walichat_key = os.getenv('WALICHAT_API_KEY', 'your-walichat-api-key')
 
 client = OpenAI(
     api_key=os.getenv('OPENAI_API_KEY')
@@ -607,7 +607,7 @@ Set your API keys as environment variables:
 
 ```bash
 export OPENAI_API_KEY="your-openai-api-key"
-export WASSENGER_API_KEY="your-walichat-api-key"
+export WALICHAT_API_KEY="your-walichat-api-key"
 ```
 
 This approach uses OpenAI's native MCP integration, which automatically handles tool discovery, execution, and communication with the WaliChat MCP server without requiring manual MCP client configuration.
